@@ -120,3 +120,8 @@ variable "volume_provider_settings" {
   description = "Map of volume-provider-specific settings, see the backend-specific README file"
   default     = {}
 }
+
+variable "additional_salt_tree" {
+  description = "Additional Salt state tree for provisioning"
+  default = null
+}

@@ -12,6 +12,7 @@ module "host" {
   additional_repos_only         = var.additional_repos_only
   additional_certs              = var.additional_certs
   additional_packages           = var.additional_packages
+  additional_salt_tree          = var.additional_salt_tree
   quantity                      = var.quantity
   swap_file_size                = var.swap_file_size
   ssh_key_path                  = var.ssh_key_path

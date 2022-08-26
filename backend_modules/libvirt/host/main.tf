@@ -205,6 +205,12 @@ resource "null_resource" "provisioning" {
     destination = "/root"
   }
 
+  // FIXME: what if additional_salt_tree is null?
+  provisioner "file" {
+    source = var.additional_salt_tree
+    destination = "/root"
+  }
+
   provisioner "remote-exec" {
     inline = local.cloud_init ? [
       "bash /root/salt/wait_for_salt.sh",
@@ -248,7 +254,7 @@ resource "null_resource" "provisioning" {
 
   provisioner "remote-exec" {
     inline = [
-      "bash /root/salt/first_deployment_highstate.sh",
+      "bash /root/salt/first_deployment_highstate.sh ${var.additional_salt_tree}",
     ]
   }
 
